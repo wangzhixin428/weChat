@@ -1,0 +1,30 @@
+<!--miniprogram/pages/student/student.wxml-->
+<view wx:if="{{student}}" class='container'>
+  <view class='title'>
+    <text>学生列表</text>
+  </view>
+  <!-- <view >搜索</view> -->
+  <view class='label'>
+    <text>姓名</text>
+    <text>年龄</text>
+    <text>班级</text>
+    <text>操作</text>
+  </view>
+  <block wx:for="{{student}}" wx:key="">
+    <view class='content'>
+      <text>{{item.name}}</text>
+      <text>{{item.age}}</text>
+      <text>{{item.clazz}}</text>
+      <button size = 'mini' type='primary' class='del' data-id='{{item._id}}' bindtap='onDel'>删除</button>
+      <button size = 'mini' type='primary' class='update'  data-id='{{item._id}}' bindtap='onUpdate'>修改</button>
+    </view>
+  </block>
+</view>
+<view wx:else="{{student}}" class='none'>
+  <text >暂时没有学生！</text>
+</view>
+<view class='add'>
+  <button  bindtap='goSet'>添加学生</button>
+</view>
+ 
+
